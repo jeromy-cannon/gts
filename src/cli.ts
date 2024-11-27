@@ -15,11 +15,11 @@
  */
 
 import * as path from 'path';
-import * as meow from 'meow';
+import meow from 'meow';
 import {init} from './init.js';
 import {clean} from './clean.js';
 import {isYarnUsed} from './util.js';
-import * as execa from 'execa';
+import execa from 'execa';
 
 export interface Logger {
   log: (...args: Array<{}>) => void;

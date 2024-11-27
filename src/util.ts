@@ -16,7 +16,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as rimraf from 'rimraf';
+import rimraf from 'rimraf';
 import {promisify} from 'util';
 import * as ncp from 'ncp';
 import * as JSON5 from 'json5';
