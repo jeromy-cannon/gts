@@ -55,7 +55,6 @@ export default [
     },
     rules: {
       '@typescript-eslint/ban-ts-comment': 'warn',
-      '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-use-before-define': 'off',
       '@typescript-eslint/no-warning-comments': 'off',

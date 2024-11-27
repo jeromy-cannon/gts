@@ -27,13 +27,13 @@ import {
   readJsonp as readJson,
   Bag,
   DefaultPackage,
-} from './util';
+} from './util.js';
 
-import {Options} from './cli';
+import {Options} from './cli.js';
 import {PackageJSON} from '@npm/types';
-import chalk = require('chalk');
+import * as chalk from 'chalk';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const pkg = require('../../package.json');
 
 const ncpp = util.promisify(ncp);
@@ -109,7 +109,6 @@ export async function addScripts(
       }
 
       if (install) {
-        // eslint-disable-next-line require-atomic-updates
         packageJson.scripts[script] = scripts[script];
         edits = true;
       }
@@ -147,7 +146,6 @@ export async function addDependencies(
       }
 
       if (install) {
-        // eslint-disable-next-line require-atomic-updates
         packageJson.devDependencies[dep] = deps[dep];
         edits = true;
       }
@@ -157,7 +155,7 @@ export async function addDependencies(
   return edits;
 }
 
-function formatJson(object: {}) {
+function formatJson(object: object) {
   const json = JSON.stringify(object, null, '  ');
   return `${json}\n`;
 }

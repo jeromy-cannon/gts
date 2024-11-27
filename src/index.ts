@@ -14,5 +14,6 @@
  * limitations under the License.
  */
 
-import * as cfg from '../.eslintrc.json';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const cfg = require('../eslint.config.mjs');
 module.exports = cfg;

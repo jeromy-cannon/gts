@@ -1,4 +1,4 @@
-import chalk = require('chalk');
+import * as chalk from 'chalk';
 import * as cp from 'child_process';
 import * as fs from 'fs-extra';
 import * as tmp from 'tmp';
@@ -6,9 +6,9 @@ import * as assert from 'assert';
 import * as path from 'path';
 import {describe, it, before, after} from 'mocha';
 
-import spawn = require('cross-spawn');
-import execa = require('execa');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+import * as spawn from 'cross-spawn';
+import * as execa from 'execa';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const pkg = require('../../package.json');
 const keep = !!process.env.GTS_KEEP_TEMPDIRS;
 const stagingDir = tmp.dirSync({keep, unsafeCleanup: true});
