@@ -5,6 +5,6 @@
     "outDir": "build",
     "resolveJsonModule": true,
   },
-  "include": [".eslintrc.json", "package.json","src/**/*.ts", "test/**/*.ts"],
+  "include": ["eslint.config.js", "package.json","src/**/*.ts", "test/**/*.ts"],
   "exclude": ["test/fixtures/**/*.*", "template/**/*.*"]
 }

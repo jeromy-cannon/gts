@@ -174,6 +174,7 @@ async function writePackageJson(
   options.logger.dir(preview);
 }
 
+// TODO this isn't right
 export const ESLINT_CONFIG = {
   extends: './node_modules/gts/',
 };
@@ -222,13 +223,9 @@ async function generateConfigFile(
 async function generateESLintConfig(options: Options): Promise<void> {
   return generateConfigFile(
     options,
-    './.eslintrc.json',
+    './eslint.config.js',
     formatJson(ESLINT_CONFIG),
   );
-}
-
-async function generateESLintIgnore(options: Options): Promise<void> {
-  return generateConfigFile(options, './.eslintignore', ESLINT_IGNORE);
 }
 
 async function generateTsConfig(options: Options): Promise<void> {
@@ -331,7 +328,6 @@ export async function init(options: Options): Promise<boolean> {
   await Promise.all([
     generateTsConfig(options),
     generateESLintConfig(options),
-    generateESLintIgnore(options),
     generatePrettierConfig(options),
     generateEditorConfig(options),
   ]);

@@ -59,8 +59,7 @@ action('🚰 kitchen sink', () => {
 
     // Ensure config files got generated.
     fs.accessSync(path.join(kitchenPath, 'tsconfig.json'));
-    fs.accessSync(path.join(kitchenPath, '.eslintrc.json'));
-    fs.accessSync(path.join(kitchenPath, '.eslintignore'));
+    fs.accessSync(path.join(kitchenPath, 'eslint.config.js'));
     fs.accessSync(path.join(kitchenPath, '.prettierrc.js'));
     fs.accessSync(path.join(kitchenPath, '.editorconfig'));
     console.log('ensured config files existed');
@@ -123,12 +122,7 @@ action('🚰 kitchen sink', () => {
     );
     assert.ok(
       fs
-        .readFileSync(path.join(kitchenPath, '.eslintrc.json'), 'utf8')
-        .endsWith('\n'),
-    );
-    assert.ok(
-      fs
-        .readFileSync(path.join(kitchenPath, '.eslintignore'), 'utf8')
+        .readFileSync(path.join(kitchenPath, 'eslint.config.js'), 'utf8')
         .endsWith('\n'),
     );
     assert.ok(

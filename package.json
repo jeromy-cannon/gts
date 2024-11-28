@@ -11,11 +11,11 @@
     "CHANGELOG.md",
     "build/src",
     "build/template",
-    "build/.eslintrc.json",
+    "build/eslint.config.js",
     ".prettierrc.json",
     "tsconfig-google.json",
     "tsconfig.json",
-    ".eslintrc.json"
+    "eslint.config.js"
   ],
   "scripts": {
     "build": "npm run compile",
