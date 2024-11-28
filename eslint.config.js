@@ -1,11 +1,11 @@
-import eslintJs from "@eslint/js";
-import nodePlugin from "eslint-plugin-n";
-import eslintConfigPrettier from "eslint-config-prettier";
-import eslintPluginPrettier from "eslint-plugin-prettier";
-import tsEslint from 'typescript-eslint';
-import typescriptParser from '@typescript-eslint/parser';
+const eslintJs = require('@eslint/js');
+const nodePlugin = require('eslint-plugin-n');
+const eslintConfigPrettier = require('eslint-config-prettier');
+const eslintPluginPrettier = require('eslint-plugin-prettier');
+const tsEslint = require('typescript-eslint');
+const typescriptParser = require('@typescript-eslint/parser');
 
-export default [
+module.exports = [
   eslintJs.configs.recommended,
   nodePlugin.configs['flat/recommended'],
   eslintConfigPrettier,
@@ -83,4 +83,5 @@ export default [
       'no-dupe-class-members': 'off',
       'require-atomic-updates': 'off',
     },
-  }];
+  },
+];

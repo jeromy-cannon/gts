@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import * as chalk from 'chalk';
 import * as cp from 'child_process';
 import * as fs from 'fs-extra';
 import * as tmp from 'tmp';
@@ -7,7 +7,7 @@ import * as path from 'path';
 import {describe, it, before, after} from 'mocha';
 
 import * as spawn from 'cross-spawn';
-import execa from 'execa';
+import * as execa from 'execa';
 import * as pkg from '../package.json';
 const keep = !!process.env.GTS_KEEP_TEMPDIRS;
 const stagingDir = tmp.dirSync({keep, unsafeCleanup: true});

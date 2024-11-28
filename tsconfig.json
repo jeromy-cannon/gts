@@ -4,7 +4,6 @@
     "rootDir": ".",
     "outDir": "build",
     "resolveJsonModule": true,
-    "esModuleInterop": true
   },
   "include": [".eslintrc.json", "package.json","src/**/*.ts", "test/**/*.ts"],
   "exclude": ["test/fixtures/**/*.*", "template/**/*.*"]

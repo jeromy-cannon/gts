@@ -19,7 +19,7 @@ import * as inquirer from 'inquirer';
 import * as path from 'path';
 import {ncp} from 'ncp';
 import * as util from 'util';
-import writeFileAtomic from 'write-file-atomic';
+import * as writeFileAtomic from 'write-file-atomic';
 
 import {
   getPkgManagerCommand,
@@ -31,7 +31,7 @@ import {
 
 import {Options} from './cli.js';
 import {PackageJSON} from '@npm/types';
-import chalk from 'chalk';
+import * as chalk from 'chalk';
 
 import * as pkg from '../package.json';
 
