@@ -14,5 +14,6 @@
  * limitations under the License.
  */
 
-import * as cfg from '../.eslintrc.json';
+// @ts-expect-error - TS7016: Could not find a declaration file for module ../eslint.config.js. /Users/user/source/gts/eslint.config.js implicitly has an any type.
+import * as cfg from '../eslint.config.js';
 module.exports = cfg;

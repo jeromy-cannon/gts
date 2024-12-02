@@ -1,4 +1,4 @@
-import chalk = require('chalk');
+import * as chalk from 'chalk';
 import * as cp from 'child_process';
 import * as fs from 'fs-extra';
 import * as tmp from 'tmp';
@@ -6,10 +6,9 @@ import * as assert from 'assert';
 import * as path from 'path';
 import {describe, it, before, after} from 'mocha';
 
-import spawn = require('cross-spawn');
-import execa = require('execa');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pkg = require('../../package.json');
+import * as spawn from 'cross-spawn';
+import * as execa from 'execa';
+import * as pkg from '../package.json';
 const keep = !!process.env.GTS_KEEP_TEMPDIRS;
 const stagingDir = tmp.dirSync({keep, unsafeCleanup: true});
 const stagingPath = stagingDir.name;
@@ -60,8 +59,7 @@ action('🚰 kitchen sink', () => {
 
     // Ensure config files got generated.
     fs.accessSync(path.join(kitchenPath, 'tsconfig.json'));
-    fs.accessSync(path.join(kitchenPath, '.eslintrc.json'));
-    fs.accessSync(path.join(kitchenPath, '.eslintignore'));
+    fs.accessSync(path.join(kitchenPath, 'eslint.config.js'));
     fs.accessSync(path.join(kitchenPath, '.prettierrc.js'));
     fs.accessSync(path.join(kitchenPath, '.editorconfig'));
     console.log('ensured config files existed');
@@ -124,12 +122,7 @@ action('🚰 kitchen sink', () => {
     );
     assert.ok(
       fs
-        .readFileSync(path.join(kitchenPath, '.eslintrc.json'), 'utf8')
-        .endsWith('\n'),
-    );
-    assert.ok(
-      fs
-        .readFileSync(path.join(kitchenPath, '.eslintignore'), 'utf8')
+        .readFileSync(path.join(kitchenPath, 'eslint.config.js'), 'utf8')
         .endsWith('\n'),
     );
     assert.ok(

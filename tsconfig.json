@@ -3,8 +3,8 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "build",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
   },
-  "include": [".eslintrc.json", "src/**/*.ts", "test/**/*.ts"],
+  "include": ["eslint.config.js", "package.json","src/**/*.ts", "test/**/*.ts"],
   "exclude": ["test/fixtures/**/*.*", "template/**/*.*"]
 }

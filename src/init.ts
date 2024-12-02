@@ -27,14 +27,13 @@ import {
   readJsonp as readJson,
   Bag,
   DefaultPackage,
-} from './util';
+} from './util.js';
 
-import {Options} from './cli';
+import {Options} from './cli.js';
 import {PackageJSON} from '@npm/types';
-import chalk = require('chalk');
+import * as chalk from 'chalk';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pkg = require('../../package.json');
+import * as pkg from '../package.json';
 
 const ncpp = util.promisify(ncp);
 
@@ -109,7 +108,6 @@ export async function addScripts(
       }
 
       if (install) {
-        // eslint-disable-next-line require-atomic-updates
         packageJson.scripts[script] = scripts[script];
         edits = true;
       }
@@ -147,7 +145,6 @@ export async function addDependencies(
       }
 
       if (install) {
-        // eslint-disable-next-line require-atomic-updates
         packageJson.devDependencies[dep] = deps[dep];
         edits = true;
       }
@@ -157,7 +154,7 @@ export async function addDependencies(
   return edits;
 }
 
-function formatJson(object: {}) {
+function formatJson(object: object) {
   const json = JSON.stringify(object, null, '  ');
   return `${json}\n`;
 }
@@ -177,6 +174,7 @@ async function writePackageJson(
   options.logger.dir(preview);
 }
 
+// TODO this isn't right
 export const ESLINT_CONFIG = {
   extends: './node_modules/gts/',
 };
@@ -225,13 +223,9 @@ async function generateConfigFile(
 async function generateESLintConfig(options: Options): Promise<void> {
   return generateConfigFile(
     options,
-    './.eslintrc.json',
+    './eslint.config.js',
     formatJson(ESLINT_CONFIG),
   );
-}
-
-async function generateESLintIgnore(options: Options): Promise<void> {
-  return generateConfigFile(options, './.eslintignore', ESLINT_IGNORE);
 }
 
 async function generateTsConfig(options: Options): Promise<void> {
@@ -334,7 +328,6 @@ export async function init(options: Options): Promise<boolean> {
   await Promise.all([
     generateTsConfig(options),
     generateESLintConfig(options),
-    generateESLintIgnore(options),
     generatePrettierConfig(options),
     generateEditorConfig(options),
   ]);

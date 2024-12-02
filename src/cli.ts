@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * Copyright 2017 Google Inc. All Rights Reserved.
  *
@@ -18,9 +16,9 @@
 
 import * as path from 'path';
 import * as meow from 'meow';
-import {init} from './init';
-import {clean} from './clean';
-import {isYarnUsed} from './util';
+import {init} from './init.js';
+import {clean} from './clean.js';
+import {isYarnUsed} from './util.js';
 import * as execa from 'execa';
 
 export interface Logger {
